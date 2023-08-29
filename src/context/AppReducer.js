@@ -6,6 +6,13 @@ export default (state,action)=>{
                 transactions: action.payload,
                 loading: false,
             }
+        case 'LOGING_IN':
+            return {
+                ...state,
+                user: action.payload.user,
+                transactions: action.payload.transactions,
+                loading: false,
+            }
         case 'DELETE_TRANSACTION':
             return {
                 ...state,
@@ -14,7 +21,14 @@ export default (state,action)=>{
         case 'ADD_TRANSACTION':
             return {
               ...state,
-                transactions: [...state.transactions, action.payload],
+                transactions: action.payload,
+            }
+        case 'LOGING_OUT':
+            return {
+                ...state,
+                transactions: [],
+                user:null,
+                loading:false,
             }
         default:
             return state;
